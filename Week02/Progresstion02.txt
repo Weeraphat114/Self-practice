@@ -1,0 +1,49 @@
+1.กำหนดให้สร้างFunction shallowEqual(obj1, obj2) returns true ถ้าหากทั้งคู่มี key & value เหมือนกัน
+โดยจะใช้ Object.keys() เพื่อเช็คจำนวนคีย์ และ references ให้ เป็น keyA & keyB.
+กำหนดไว่ว่าถ้าหากความยาวของ keyA & keyB ไม่เท่ากัน return false
+ if (keyA.length !== keyB.length) return false
+จากนั้น วน loop เช็คค่าของแต่ละ key
+    for (let key of keyA) {
+        if (obj1[key] !== obj2[key]) {
+            return false
+        }
+    }
+    return true
+
+
+2. กำหนดให้สร้างFunction printPerson(person) ใช้ object destructuring เพื่อเอาข้อมูล เฉพาะแค่ name and age
+let person1 = {name: 'John', age: 33, city: "Bangkok"}
+let person2 = {name: 'Peter', age: 30, city: "Newyork"}
+    let {name, age} = person --> object destructuring
+    console.log(name, age);
+// John 33
+// Peter 30
+
+3. กำหนดให้สร้างFunction toJSONString(obj) เปลี่ยนเป็นข้อความ JSON
+return JSON.stringify(obj)
+
+และให้สร้างอีกFunction isSameJSONString(obj1, obj2) ถ้าหากทั้งคู่เหมือนกันทุกอย่างในobject return true
+    if(JSON.stringify(obj1) == JSON.stringify(obj2)) {
+        return true
+    }
+    return false
+
+4. กำหนดให้สร้างFunction getFullName(user) ใช้ nested object destructuring ดึงเอาข้อมูลเฉพาะแค่  firstName and lastName 
+let user1 = {id: 114, profile: {firstName: "Peto", lastName: "Suknivatsiri"}};
+function getFullName(user) {
+    let { profile: {firstName, lastName}} = user --> nested object destructuring
+    return `${firstName} ${lastName}`
+}
+console.log(getFullName(user1));
+//Peto Suknivatsiri
+
+
+5. กำหนดให้สร้างFunction getUserInfo(user)  ใช้ nested object destructuring  ดึงเอาข้อมูลเฉพาะแค่  firstName, lastName and  city แต่ว่าข้อมูล city จะหายไป
+เลยกำหนดให้เป็น 'unknown' ให้ Return object  { fullName, city }
+let user2 = {id: 114, profile: {firstName: "Weeraphat", lastName: "Suknivatsiri"}, address: {}}
+function getUserInfo(user) {
+    let { profile: {firstName, lastName}, address: {city = "unknown"}} = user --> nested object destructuring
+    return { fullname: `${firstName} ${lastName}`, city}
+}
+console.log(getUserInfo(user2));
+//{ fullname: 'Weeraphat Suknivatsiri', city: 'unknown' }
