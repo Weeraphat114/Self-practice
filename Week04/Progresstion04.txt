@@ -1,0 +1,89 @@
+1. Anonymous Arrow Function (square)
+ให้เขียนฟังก์ชันไม่ระบุชื่อ (anonymous function) ในรูปแบบ Arrow Function
+ฟังก์ชันรับค่าตัวเลข และ return ค่ากำลังสอง (x * x)
+
+2. Anonymous Function Declaration (greet)
+ใช้ Function Expression แบบ function ปกติ (anonymous function)
+รับ parameter name และ return "Hello, <name>"
+let greet = function(name) {
+    return `Hello, ${name}.`;
+}
+console.log(greet("User")); // "Hello, User.
+
+3.Reuse Callback Function (isPrime + filter)
+
+สร้างฟังก์ชัน isPrime(num) สำหรับเช็คจำนวนเฉพาะ (prime number)โดยการใช้ Math.sqrtของค่า num, for-loop
+และใช้ .filter() เพื่อกรองตัวเลขเฉพาะออกจาก array 1-10
+for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+let numbers = [1,2,3,4,5,6,7,8,9,10];
+let checkPrime = numbers.filter(isPrime);
+
+4. forEach + includes (stopwords count)
+ให้นำคำsentence ไปเปรียบเทียบว่ามีกี่คำอยู่ใน stopwords ใช้ .forEach() วนลูปประโยคที่แปลงเป็น array ด้วย ใช้.split(" ")แยกแต่ละคำ
+และใช้ .includes() ตรวจสอบว่าคำนั้นอยู่ใน stopwords หรือไม่
+let stopwords = ["is", "the", "a", "and"];
+let count = 0;
+let sentence = "This is a book and the pen red".split(" ");
+
+sentence.forEach(word => {
+  if (stopwords.includes(word)) {
+    count++;
+  }
+});
+console.log(count); 
+
+5. map + toUpperCase (uppercase names)
+ใช้ .map() ดึงเฉพาะค่า name จาก object array
+แปลงเป็นตัวพิมพ์ใหญ่ด้วย.toUpperCase()
+let people = [
+    {name: "john", age: 25},
+    {name: "anna", age: 30},
+    {name: "pete", age: 18}
+];
+let changeThewordUppercase = people.map ((people) => people.name.toUpperCase())
+
+6. find (product > 1000)
+ใช้ .find() เพื่อหาข้อมูลตัวแรกที่ตรงเงื่อนไข, เงื่อนไข: ราคามากกว่า 1000
+let products = [
+    {id:1, name:"Pen", price:20},
+    {id:2, name:"Keyboard", price:1200},
+    {id:3, name:"Monitor", price:3000}
+];
+let getProduct = products.find((find) => find.price > 1000)
+
+7. reduce (group students by grade)
+ใช้ .reduce() เพื่อจัดกลุ่ม object ตามค่า gradeของ students
+accumulator จะเป็น object ที่ key = grade, value = array ของชื่อ 
+โดยกำหนดเงื่อนไขถ้า !accumulator[currentvalue.grade] เป็นจริงถ้าคีย์สำหรับเกรดนั้นไม่มีอยู่ในตัวสะสม
+สร้างคู่keyเป็นค่าใหม่ โดยkeyคือเกรด และvalueคือarrayใหม่ arrayจะใช้สำหรับเก็บชื่อนักเรียนที่มีเกรดนั้น 
+
+accumulator[currentvalue.grade].push(currentvalue.name) เพิ่มชื่อนักเรียนปัจจุบันลงในarray gradeภายในตัวaccumulator
+let students = [
+    {name:"Tom", grade:"A"},
+    {name:"Jerry", grade:"B"},
+    {name:"Anna", grade:"A"},
+    {name:"Bob", grade:"C"}
+];
+let listGradeStudents = students.reduce((accumulator, currentvalue) => {
+    if (!accumulator[currentvalue.grade]) {
+        accumulator[currentvalue.grade] = [] //ใช้สำหรับเก็บชื่อนักเรียนที่มีเกรดนั้น
+    }
+    accumulator[currentvalue.grade].push(currentvalue.name) //เพิ่มชื่อนักเรียนคนปัจจุบันใน array
+    return accumulator
+}, {})
+console.log(listGradeStudents);// { A:["Tom","Anna"], B:["Jerry"], C:["Bob"] }
+
+8.findIndex + splice (remove banana)
+ใช้ .findIndex() หา index ของ "banana" ตัวแรกและใช้ .splice(index, 1) เพื่อลบออกจาก array
+
+
+9. slice + push (split array into halves)
+ใช้ .slice() แยก array ออกเป็นสองส่วน และจากนั้นใช้ .push() เอาครึ่งหลังมาใส่ในครึ่งแรกให้เป็น(nested array)
+let nums = [1,2,3,4,5,6]
+let first = nums.slice(0, 3)
+let second = nums.slice(3)
+first.push(second)
+console.log(first);// [1,2,3, [4,5,6]]
