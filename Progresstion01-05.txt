@@ -1,0 +1,26 @@
+Progression 01: Array Basics and Methods
+ฝึกพื้นฐานการทำงานกับ Array ใช้ for-loop และเมธอดเบื้องต้น เช่น push, pop, shift, unshift
+
+
+Progression 02: Objects and Destructuring
+ฝึกใช้งาน Object ทั้งการสร้าง การเข้าถึง property และการตรวจสอบความเท่ากัน (shallow equality)
+ฝึกใช้ Object Destructuring ทั้งแบบปกติและแบบ nested พร้อม default value
+ฝึกแปลง object เป็น JSON string ด้วย JSON.stringify และเปรียบเทียบค่า object
+
+
+Progression 03: Functions, Parameters, and Spread/Rest
+ฝึกเขียน Function Declaration, Function Expression (arrow and assigned function)
+ฝึกใช้งาน arguments object, rest parameter, spread operator เพื่อจัดการค่าพารามิเตอร์
+
+
+Progression 04: Function Expressions, Callbacks, and Array Methods
+ฝึกการเขียน Anonymous Arrow Function และ Anonymous Function Declaration
+ฝึกสร้างและนำกลับมาใช้ซ้ำ (reuse) callback function เช่นฟังก์ชันตรวจสอบหาจำนวนเฉพาะ
+และการฝึกใช้ Array Methods หลายรูปแบบ เช่น forEach, map, filter, reduce, find, findIndex, splice, slice, push
+
+
+Progression 05: Advanced Functions, String Operations, and JS Modules
+ฝึกเขียน Anonymous Functions (arrow และ declaration) ในโจทย์ที่ซับซ้อนขึ้น
+ฝึก reuse callback function กับ string/array method ที่ยากขึ้น
+ฝึก String Operations เช่น merge string, convert array --> string, reverse
+และเรียงตัวอักษรตามลำดับและเปรียนเทียบโดยไม่สนใจ Case-Sensitive (localeCompare)

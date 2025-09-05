@@ -1,0 +1,28 @@
+1. Anonymous Arrow Function + Reverse
+เขียน anonymous arrow function ที่รับ string และ return string ที่กลับด้าน
+ใช้ arrow function, แยก string เป็น array โดยจะใช้ split, reverse และรวมกลับเป็น string โดยใช้ join
+
+2. Anonymous Function Declaration + Merge
+เขียน anonymous function ให้ทำการ merge string รวมกัน
+let mergeStrings = function(word1, word2, word3) {
+    return `${word1} ${word2} ${word3}`
+}
+console.log(mergeStrings("Hello", "Pete", "AI"));// "Hello Pete AI"
+
+3. Reusable Callback + Sort + localeCompare
+สร้าง callback function สำหรับใช้sort() เพื่อจัดเรียง string, 
+reuse callback, การใช้ localeCompare() โดยไม่สนตัวพิมพ์ใหญ่เล็ก
+
+
+4. Convert Array to String + Reverse
+เขียน function ที่รับประโยค (string) แล้วสลับคำกลับด้าน
+split() เพื่อแยกคำ, reverse() เพื่อสลับลำดับ, join(" ") เพื่อรวมกลับเป็น string
+function reverseWords(sentence) {
+    return sentence.split(" ").reverse().join(" ")
+}
+console.log(reverseWords("I love JavaScript"));//"JavaScript love I"
+
+5. Combine: Filter + Map + Reverse + toString
+ให้ array ของตัวเลข ใช้ filter() เพื่อเลือกเลขคู่และเอาเลขคี่ออก จากนั้น reverse() และแปลงเป็น string แล้วคั่นด้วย " - "
+
+
